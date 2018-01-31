@@ -23,5 +23,13 @@ class Transfer
     end
   end
 
-
+  def reverse_transfer
+    if self.status == "complete"
+      @receiver.balance -= @amount
+      @sender.deposit(@amount)
+      @status = "reversed"
+    else
+      "This transfer was never executed"
+    end
+  end
 end
