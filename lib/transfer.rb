@@ -6,7 +6,7 @@ class Transfer
     @sender = sender
     @receiver = receiver
     @amount = amount
-    @status = pending
+    @status = "pending"
   end
 
   def valid?
@@ -18,10 +18,10 @@ class Transfer
       @sender.balance -= @amount
       @receiver.deposit(@amount)
       @status = "complete"
-    else 
+    else
       "Transaction rejected. Please check your account balance."
     end
   end
-      
+
 
 end
